@@ -1,0 +1,225 @@
+[gd_scene load_steps=18 format=3 uid="uid://d4bysidut2ewe"]
+
+[ext_resource type="AudioStream" uid="uid://ca4urqt3ocgg0" path="res://Sounds/ArtOfTrance-Madagascar.ogg" id="1_pdgec"]
+[ext_resource type="PackedScene" uid="uid://bciqreud6phn3" path="res://Graphics3D/ScratchCat/scratch_cat.glb" id="3_y36bx"]
+[ext_resource type="PackedScene" uid="uid://d1o7srv1jinac" path="res://Scenes/DanceParty/ClubRoom/ClubRoom.glb" id="5_1xav0"]
+[ext_resource type="Script" path="res://Scenes/DanceParty/LightSpin.gd" id="5_84sve"]
+[ext_resource type="PackedScene" uid="uid://pm6twe1lekem" path="res://Graphics3D/Dog/cartoon_dog_in_tracksuit.glb" id="7_2mcnv"]
+
+[sub_resource type="SystemFont" id="SystemFont_r0nna"]
+font_names = PackedStringArray("OCR A")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c1cr"]
+roughness = 0.0
+
+[sub_resource type="TextMesh" id="TextMesh_4wpgn"]
+material = SubResource("StandardMaterial3D_4c1cr")
+text = "CoderDojo
+Ennis"
+font = SubResource("SystemFont_r0nna")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vg8hm"]
+albedo_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="Environment" id="Environment_56tcf"]
+fog_enabled = true
+volumetric_fog_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_hajpe"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0ieb5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xftuu"]
+in_3d_space = true
+seamless = true
+noise = SubResource("FastNoiseLite_0ieb5")
+
+[sub_resource type="Animation" id="Animation_ewah1"]
+resource_name = "CatDance"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.0174533, -0.25, 0, 0.25, 0, 0.202458, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -0.335103, -0.25, 0, 0.25, 0, 0.0174533, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.014, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.029, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2)
+}
+
+[sub_resource type="Animation" id="Animation_hqssd"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yjb8g"]
+_data = {
+"CatDance": SubResource("Animation_ewah1"),
+"RESET": SubResource("Animation_hqssd")
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_6anm0"]
+
+[node name="CatDanceScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.912233, 0.023326, 0.409007, -0.0768251, 0.990406, 0.114864, -0.402403, -0.136205, 0.905273, 0.489527, 0.534994, 0.841067)
+current = true
+
+[node name="CoderDojoEnnisText" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0330557, 0, 3.04482, 0, 3.045, 0, -3.04482, 0, -0.0330557, -3.95088, 2.00741, -1.95094)
+mesh = SubResource("TextMesh_4wpgn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_pdgec")
+autoplay = true
+
+[node name="SkySphere" type="CSGSphere3D" parent="."]
+flip_faces = true
+radius = 8.636
+rings = 10
+material = SubResource("StandardMaterial3D_vg8hm")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(4.251, 0, 0, 0, 2.10726, 0, 0, 0, 4.14435, -0.322835, -1.46369, -0.416676)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_56tcf")
+camera_attributes = SubResource("CameraAttributesPractical_hajpe")
+
+[node name="Dog" parent="." instance=ExtResource("7_2mcnv")]
+transform = Transform3D(-0.432978, 0, 0.25006, 0, 0.5, 0, -0.25006, 0, -0.432978, 0.824913, 0.464709, -0.318776)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="LightAnchor1" type="Node3D" parent="Lights"]
+script = ExtResource("5_84sve")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights/LightAnchor1"]
+transform = Transform3D(1, 0, 0, 0, 0.993815, -0.111052, 0, 0.111052, 0.993815, 0.0761448, 0.135996, 0.410989)
+light_color = Color(1, 0.286275, 1, 1)
+light_energy = 1.327
+light_projector = SubResource("NoiseTexture2D_xftuu")
+shadow_enabled = true
+
+[node name="LightAnchor3" type="Node3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.57782, 2.39302, -2.18438)
+script = ExtResource("5_84sve")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights/LightAnchor3"]
+transform = Transform3D(1, 0, 0, 0, 0.993815, -0.111052, 0, 0.111052, 0.993815, 0.0761448, 0.135996, 0.410989)
+light_color = Color(0.419608, 0.74902, 0.419608, 1)
+light_energy = 33.0
+light_projector = SubResource("NoiseTexture2D_xftuu")
+shadow_enabled = true
+
+[node name="LightAnchor2" type="Node3D" parent="Lights"]
+transform = Transform3D(-0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, -0.642788, 0, 0, 0)
+script = ExtResource("5_84sve")
+Speed = 0.8
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights/LightAnchor2"]
+transform = Transform3D(0.764271, -0.193961, -0.615036, 0.613812, -0.0737296, 0.786002, -0.1978, -0.978235, 0.0627064, -0.894163, 1.2037, -0.403196)
+light_color = Color(0.447059, 0.654902, 0.2, 1)
+light_energy = 1.327
+light_projector = SubResource("NoiseTexture2D_xftuu")
+light_size = 0.378
+shadow_enabled = true
+
+[node name="LightAncor3" type="Node3D" parent="Lights"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0, 0)
+script = ExtResource("5_84sve")
+Speed = 0.8
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights/LightAncor3"]
+transform = Transform3D(0.62887, 0.607319, 0.485476, -0.747402, 0.644269, 0.162196, -0.214272, -0.464846, 0.859073, 0.0761448, 0.533548, 0.410989)
+light_color = Color(0.392157, 0.286275, 1, 1)
+light_energy = 1.327
+light_projector = SubResource("NoiseTexture2D_xftuu")
+shadow_enabled = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+light_energy = 0.3
+
+[node name="Cats" type="Node3D" parent="."]
+
+[node name="scratch_cat2" parent="Cats" instance=ExtResource("3_y36bx")]
+transform = Transform3D(-0.0249556, 0, 0.999689, 0, 1, 0, -0.999689, 0, -0.0249556, -0.801767, 0.002534, -0.527782)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cats/scratch_cat2"]
+autoplay = "CatDance"
+speed_scale = 1.55
+libraries = {
+"": SubResource("AnimationLibrary_yjb8g")
+}
+
+[node name="scratch_cat" parent="Cats" instance=ExtResource("3_y36bx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185798, -0.0742113, 0.699709)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cats/scratch_cat"]
+autoplay = "CatDance"
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_yjb8g")
+}
+
+[node name="scratch_cat4" parent="Cats" instance=ExtResource("3_y36bx")]
+transform = Transform3D(0.460107, 0, 0.887864, 0, 1, 0, -0.887864, 0, 0.460107, 1.42921, -0.0474031, -0.9425)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cats/scratch_cat4"]
+autoplay = "CatDance"
+speed_scale = 1.55
+libraries = {
+"": SubResource("AnimationLibrary_yjb8g")
+}
+
+[node name="scratch_cat3" parent="Cats" instance=ExtResource("3_y36bx")]
+transform = Transform3D(0.881954, 0, 0.471335, 0, 1, 0, -0.471335, 0, 0.881954, 0.39835, -0.0742113, -0.830342)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cats/scratch_cat3"]
+autoplay = "CatDance"
+speed_scale = 2.1
+libraries = {
+"": SubResource("AnimationLibrary_yjb8g")
+}
+
+[node name="ClubRoom" parent="." instance=ExtResource("5_1xav0")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.0844019, -0.711629, 0.99833)
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 0, -0.0511794, 0)
+mesh = SubResource("QuadMesh_6anm0")
