@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://d4bysidut2ewe"]
+[gd_scene load_steps=20 format=3 uid="uid://d4bysidut2ewe"]
 
 [ext_resource type="AudioStream" uid="uid://ca4urqt3ocgg0" path="res://Sounds/ArtOfTrance-Madagascar.ogg" id="1_pdgec"]
+[ext_resource type="Texture2D" uid="uid://bscp6ce57ddty" path="res://Graphics2D/Backgrounds/WaterSphere.png" id="2_f7tea"]
 [ext_resource type="PackedScene" uid="uid://bciqreud6phn3" path="res://Graphics3D/ScratchCat/scratch_cat.glb" id="3_y36bx"]
 [ext_resource type="PackedScene" uid="uid://d1o7srv1jinac" path="res://Scenes/DanceParty/ClubRoom/ClubRoom.glb" id="5_1xav0"]
 [ext_resource type="Script" path="res://Scenes/DanceParty/LightSpin.gd" id="5_84sve"]
@@ -17,6 +18,9 @@ material = SubResource("StandardMaterial3D_4c1cr")
 text = "CoderDojo
 Ennis"
 font = SubResource("SystemFont_r0nna")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbqg6"]
+albedo_texture = ExtResource("2_f7tea")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vg8hm"]
 albedo_color = Color(0.180392, 0.180392, 0.180392, 1)
@@ -109,6 +113,7 @@ stream = ExtResource("1_pdgec")
 autoplay = true
 
 [node name="SkySphere" type="CSGSphere3D" parent="."]
+material_override = SubResource("StandardMaterial3D_gbqg6")
 flip_faces = true
 radius = 8.636
 rings = 10

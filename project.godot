@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ScratchyGodot"
-run/main_scene="res://Scenes/DanceParty.tscn"
+run/main_scene="res://Scenes/DanceParty/DanceParty.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://Graphics2D/Characters/ScratchyGodot.svg"
 
@@ -19,3 +19,7 @@ config/icon="res://Graphics2D/Characters/ScratchyGodot.svg"
 
 Events="*res://AutoLoad/Events.gd"
 Delay="*res://AutoLoad/Delay.gd"
+
+[display]
+
+window/stretch/mode="viewport"

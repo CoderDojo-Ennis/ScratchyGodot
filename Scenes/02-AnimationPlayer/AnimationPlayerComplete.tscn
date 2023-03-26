@@ -1,0 +1,244 @@
+[gd_scene load_steps=14 format=3 uid="uid://bx5tedsbxnf5s"]
+
+[ext_resource type="Texture2D" uid="uid://dtd6rmfep7bd2" path="res://Graphics2D/Backgrounds/invaders.png" id="1_t5sms"]
+[ext_resource type="Texture2D" uid="uid://dxr3qgfajsmu0" path="res://Graphics2D/Characters/GBotHead.svg" id="2_khhq4"]
+[ext_resource type="Texture2D" uid="uid://dyxqhyjv7qxx3" path="res://Graphics2D/Characters/scratch-cat.svg" id="3_72jgv"]
+[ext_resource type="Texture2D" uid="uid://gsx0dpjmps7t" path="res://Graphics2D/Props/SpaceInvaders/Alien1A.png" id="4_r6p03"]
+
+[sub_resource type="Animation" id="Animation_i4qp6"]
+resource_name = "Spin"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.060996, -0.25, 0, 0.3, 2.21123, 6.28319, -0.3, -1.55405, 0.3, 1.63995),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_lwjld"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_77mop"]
+_data = {
+"RESET": SubResource("Animation_lwjld"),
+"Spin": SubResource("Animation_i4qp6")
+}
+
+[sub_resource type="Animation" id="Animation_6lbi0"]
+resource_name = "Stretch"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0, 0.069344, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0, 0.1776, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_rutoa"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fgye"]
+_data = {
+"RESET": SubResource("Animation_rutoa"),
+"Stretch": SubResource("Animation_6lbi0")
+}
+
+[sub_resource type="Animation" id="Animation_wjhgo"]
+resource_name = "Colors"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0.694118, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.717647, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.443137, -0.25, 0, 0.25, 0, 0.168627, -0.25, 0, 0.25, 0, 0.34902, -0.25, 0, 0.25, 0, 0.694118, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.360784, -0.25, 0, 0.25, 0, 0.54902, -0.25, 0, 0.25, 0, 0.368627, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3)
+}
+
+[sub_resource type="Animation" id="Animation_am5l2"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iuuln"]
+_data = {
+"Colors": SubResource("Animation_wjhgo"),
+"RESET": SubResource("Animation_am5l2")
+}
+
+[node name="AnimationPlayer" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(591, 328)
+scale = Vector2(1.17017, 0.665499)
+texture = ExtResource("1_t5sms")
+metadata/_edit_lock_ = true
+
+[node name="SpinningHead" type="Sprite2D" parent="."]
+position = Vector2(169, 153)
+scale = Vector2(0.287109, 0.287109)
+texture = ExtResource("2_khhq4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SpinningHead"]
+autoplay = "Spin"
+libraries = {
+"": SubResource("AnimationLibrary_77mop")
+}
+
+[node name="StretchyCat" type="Sprite2D" parent="."]
+position = Vector2(474, 642)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_72jgv")
+centered = false
+offset = Vector2(-1072.8, -2473.74)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StretchyCat"]
+autoplay = "Stretch"
+libraries = {
+"": SubResource("AnimationLibrary_0fgye")
+}
+
+[node name="AlienColors" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(910, 153)
+scale = Vector2(30, 30)
+texture = ExtResource("4_r6p03")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AlienColors"]
+autoplay = "Colors"
+libraries = {
+"": SubResource("AnimationLibrary_iuuln")
+}

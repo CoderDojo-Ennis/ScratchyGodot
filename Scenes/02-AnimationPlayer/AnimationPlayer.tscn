@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm431bx5ax3jd"]
+
+[ext_resource type="Texture2D" uid="uid://dtd6rmfep7bd2" path="res://Graphics2D/Backgrounds/invaders.png" id="1_tq47o"]
+[ext_resource type="Texture2D" uid="uid://dxr3qgfajsmu0" path="res://Graphics2D/Characters/GBotHead.svg" id="2_50vml"]
+
+[node name="AnimationPlayer" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(591, 328)
+scale = Vector2(1.17017, 0.665499)
+texture = ExtResource("1_tq47o")
+metadata/_edit_lock_ = true
+
+[node name="SpinningHead" type="Sprite2D" parent="."]
+position = Vector2(169, 153)
+scale = Vector2(0.287109, 0.287109)
+texture = ExtResource("2_50vml")

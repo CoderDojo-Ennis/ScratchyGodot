@@ -5,3 +5,4 @@ This is a collection of helper resources and examples to simplify the transition
 
 [Introduction document with scratch block equivalents](https://tinyurl.com/scratchgodot)
 
+See the [WIKI Pages](https://github.com/CoderDojo-Ennis/ScratchyGodot/wiki) for instructions
