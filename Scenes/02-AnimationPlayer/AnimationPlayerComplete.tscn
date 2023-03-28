@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bx5tedsbxnf5s"]
+[gd_scene load_steps=15 format=3 uid="uid://25usrnlm2inc"]
 
 [ext_resource type="Texture2D" uid="uid://dtd6rmfep7bd2" path="res://Graphics2D/Backgrounds/invaders.png" id="1_t5sms"]
-[ext_resource type="Texture2D" uid="uid://dxr3qgfajsmu0" path="res://Graphics2D/Characters/GBotHead.svg" id="2_khhq4"]
-[ext_resource type="Texture2D" uid="uid://dyxqhyjv7qxx3" path="res://Graphics2D/Characters/scratch-cat.svg" id="3_72jgv"]
+[ext_resource type="Texture2D" uid="uid://dxr3qgfajsmu0" path="res://Graphics2D/Characters/Godot/GBotHead.svg" id="2_or7g2"]
+[ext_resource type="Texture2D" uid="uid://dyxqhyjv7qxx3" path="res://Graphics2D/Characters/Scratch/scratch-cat.svg" id="3_anbgm"]
 [ext_resource type="Texture2D" uid="uid://gsx0dpjmps7t" path="res://Graphics2D/Props/SpaceInvaders/Alien1A.png" id="4_r6p03"]
 [ext_resource type="Texture2D" uid="uid://cqg5rb1n72h4m" path="res://Graphics2D/Props/CoderDojo01.png" id="5_3e8dd"]
 
@@ -211,7 +211,7 @@ metadata/_edit_lock_ = true
 [node name="SpinningHead" type="Sprite2D" parent="."]
 position = Vector2(169, 153)
 scale = Vector2(0.287109, 0.287109)
-texture = ExtResource("2_khhq4")
+texture = ExtResource("2_or7g2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpinningHead"]
 autoplay = "Spin"
@@ -222,7 +222,7 @@ libraries = {
 [node name="StretchyCat" type="Sprite2D" parent="."]
 position = Vector2(474, 642)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_72jgv")
+texture = ExtResource("3_anbgm")
 centered = false
 offset = Vector2(-1072.8, -2473.74)
 
@@ -246,7 +246,6 @@ libraries = {
 
 [node name="CoderDojo01" type="Sprite2D" parent="."]
 position = Vector2(938, 451)
-rotation = 0.330815
 texture = ExtResource("5_3e8dd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CoderDojo01"]
