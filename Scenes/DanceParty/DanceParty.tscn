@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=20 format=3 uid="uid://xxltr305878q"]
 
 [ext_resource type="AudioStream" uid="uid://ca4urqt3ocgg0" path="res://Sounds/Music/ArtOfTrance-Madagascar.ogg" id="1_pdgec"]
 [ext_resource type="Texture2D" uid="uid://bscp6ce57ddty" path="res://Graphics2D/Backgrounds/WaterSphere.png" id="2_f7tea"]

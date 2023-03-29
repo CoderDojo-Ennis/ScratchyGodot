@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4oau6wm6eho"]
+[gd_scene load_steps=9 format=3 uid="uid://d4oau6wm6eho"]
 
 [ext_resource type="Texture2D" uid="uid://cfq28f83oegc4" path="res://Graphics2D/TileSets/SproutLands/Grass.png" id="1_auv5f"]
 [ext_resource type="Texture2D" uid="uid://bvk0yuq4uwff1" path="res://Graphics2D/TileSets/SproutLands/Water.png" id="2_u31p1"]
 [ext_resource type="Texture2D" uid="uid://cx641cqb6fy5w" path="res://Graphics2D/TileSets/SproutLands/Hills.png" id="3_1issa"]
+[ext_resource type="PackedScene" uid="uid://b8oilsal3uxj6" path="res://Scenes/03-PlayerMovement/Prefabs/Player.tscn" id="4_8dkx7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ncgei"]
 texture = ExtResource("1_auv5f")
@@ -678,3 +679,6 @@ layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array(720943, 131076, 2, 720944, 131076, 2, 720945, 131076, 2, 720946, 131076, 2, 720947, 131076, 2, 720942, 65540, 2, 655406, 65540, 0, 655407, 262148, 0, 589871, 65540, 0, 589872, 131076, 0, 589873, 131076, 0, 589874, 131076, 0, 589875, 196612, 0, 655410, 262148, 1, 655409, 327684, 1, 655408, 131076, 1, 655411, 327684, 0, 655412, 196612, 0, 720948, 327684, 0, 720949, 196612, 0, 786484, 65540, 2, 786485, 196612, 2)
+
+[node name="Player" parent="." instance=ExtResource("4_8dkx7")]
+position = Vector2(658, 250)
