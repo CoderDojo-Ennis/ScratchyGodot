@@ -23,3 +23,7 @@ Delay="*res://AutoLoad/Delay.gd"
 [display]
 
 window/stretch/mode="viewport"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

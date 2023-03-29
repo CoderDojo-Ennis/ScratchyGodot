@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://d4bysidut2ewe"]
+[gd_scene load_steps=20 format=3]
 
-[ext_resource type="AudioStream" uid="uid://ca4urqt3ocgg0" path="res://Sounds/ArtOfTrance-Madagascar.ogg" id="1_pdgec"]
+[ext_resource type="AudioStream" uid="uid://ca4urqt3ocgg0" path="res://Sounds/Music/ArtOfTrance-Madagascar.ogg" id="1_pdgec"]
 [ext_resource type="Texture2D" uid="uid://bscp6ce57ddty" path="res://Graphics2D/Backgrounds/WaterSphere.png" id="2_f7tea"]
 [ext_resource type="PackedScene" uid="uid://bciqreud6phn3" path="res://Graphics3D/ScratchCat/scratch_cat.glb" id="3_y36bx"]
 [ext_resource type="PackedScene" uid="uid://d1o7srv1jinac" path="res://Scenes/DanceParty/ClubRoom/ClubRoom.glb" id="5_1xav0"]
