@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://jqdgldq11j0i"]
+
+[node name="TileMapScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(290, 162)
+zoom = Vector2(2, 2)

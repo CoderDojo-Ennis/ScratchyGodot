@@ -200,7 +200,7 @@ _data = {
 "RESET": SubResource("Animation_am5l2")
 }
 
-[node name="AnimationPlayer" type="Node2D"]
+[node name="AnimationPlayerComplete" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(591, 328)
