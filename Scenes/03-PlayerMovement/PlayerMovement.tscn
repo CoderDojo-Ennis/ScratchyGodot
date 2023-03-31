@@ -1,7 +1,15 @@
-[gd_scene format=3 uid="uid://bhnmne7gksobi"]
+[gd_scene load_steps=2 format=3 uid="uid://bhnmne7gksobi"]
+
+[ext_resource type="Texture2D" uid="uid://dc256evsgo1rq" path="res://Graphics2D/Backgrounds/stage.jpg" id="1_vc6w5"]
 
 [node name="PlayerMovementScene" type="Node2D"]
+
+[node name="Stage" type="Sprite2D" parent="."]
+position = Vector2(194.703, 131)
+scale = Vector2(0.802198, 0.802198)
+texture = ExtResource("1_vc6w5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(194, 108)
 zoom = Vector2(3, 3)
+metadata/_edit_lock_ = true

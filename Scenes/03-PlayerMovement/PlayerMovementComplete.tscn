@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3f2a82vk8dfd"]
+[gd_scene load_steps=3 format=3 uid="uid://b3f2a82vk8dfd"]
 
 [ext_resource type="PackedScene" uid="uid://b8oilsal3uxj6" path="res://Scenes/03-PlayerMovement/Prefabs/Player.tscn" id="1_y5oix"]
+[ext_resource type="Texture2D" uid="uid://dc256evsgo1rq" path="res://Graphics2D/Backgrounds/stage.jpg" id="2_i1b2c"]
 
 [node name="PlayerMovementScene" type="Node2D"]
+
+[node name="Stage" type="Sprite2D" parent="."]
+position = Vector2(194.703, 131)
+scale = Vector2(0.802198, 0.802198)
+texture = ExtResource("2_i1b2c")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(194, 108)
