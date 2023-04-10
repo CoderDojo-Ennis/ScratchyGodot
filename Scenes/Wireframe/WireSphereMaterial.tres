@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bbxel1d6mv3c4"]
+
+[ext_resource type="Shader" uid="uid://c0socqolwyu6l" path="res://Scenes/Wireframe/WallWireMaterial.tres" id="1_wntdg"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_wntdg")

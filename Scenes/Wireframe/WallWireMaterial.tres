@@ -1,0 +1,41 @@
+[gd_resource type="Shader" format=3 uid="uid://c0socqolwyu6l"]
+
+[resource]
+code = "shader_type spatial;
+render_mode wireframe, unshaded, cull_disabled;
+
+const vec4 laser_color = vec4(0.5, 0.0, 1.5, 1.0);
+const vec4 laser2_color = vec4(0.0, 0.0, 2.0, 1.0);
+const float vertex_count = 24.0;
+const float coverage = 1.0;
+const float speed = 20.0;
+const float color_speed = 2.5;
+const float back_opacity = 0.05;
+const float flicker = 0.0;
+
+varying flat float vis;
+
+void vertex() {
+
+	float perc = mod((float(VERTEX_ID) + TIME * speed * vertex_count), vertex_count) / vertex_count;
+	vis = perc <= coverage ? 1.0 : 0.0;
+
+	// Flicker
+	//float t = (sin(TIME * 200.0 + float(VERTEX_ID)) + 1.0);
+	//if (t < flicker) {
+	//	vis = 0.0;
+	//}
+		
+	// Offset
+	VERTEX = VERTEX * 1.02;
+}
+
+void fragment() {
+	if (vis < 0.5) {
+		discard;
+	} else {
+		EMISSION = vec3(100.0, 0.0, 100.0);
+		ALBEDO = mix(laser_color.rgb, laser2_color.rgb, sin(TIME * color_speed) * 0.5 + 0.5);
+		ALPHA = mix(1.0, back_opacity, FRONT_FACING ? 0.0 : 1.0);
+	}
+}"

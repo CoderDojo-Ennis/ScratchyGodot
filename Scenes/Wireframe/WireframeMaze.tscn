@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwokw1s8rfllj"]
+
+[ext_resource type="Environment" uid="uid://cy7ueeryns16q" path="res://Scenes/Wireframe/WireframeEnvironment.tres" id="1_tiyss"]
+[ext_resource type="Script" path="res://Scenes/Wireframe/CameraRig.gd" id="3_cic7p"]
+[ext_resource type="PackedScene" uid="uid://drttb8b63mfqc" path="res://Scenes/Wireframe/PlayerBall.tscn" id="3_hgpkb"]
+[ext_resource type="MeshLibrary" uid="uid://cw6sv0rryfegi" path="res://Scenes/Wireframe/MazeMeshLibrary.meshlib" id="4_jbq1r"]
+[ext_resource type="Script" path="res://Scenes/Wireframe/Camera3D.gd" id="4_sw55e"]
+[ext_resource type="Script" path="res://Scenes/Wireframe/DeathPlane.gd" id="6_0w0b2"]
+[ext_resource type="Material" uid="uid://qijk8ioao787" path="res://Scenes/Wireframe/WireSpehere2Material.tres" id="7_h4dl3"]
+[ext_resource type="AudioStream" uid="uid://dm7ojpwsm4lkl" path="res://Scenes/Wireframe/Sounds/spaceship-cruising-ufo-7176.mp3" id="8_2q5ut"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_axlaf"]
+exposure_multiplier = 2.0
+dof_blur_far_distance = 0.04
+dof_blur_near_distance = 1.32
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_houub"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="QuadMesh" id="QuadMesh_acaky"]
+material = ExtResource("7_h4dl3")
+size = Vector2(100, 100)
+subdivide_width = 50
+subdivide_depth = 50
+orientation = 1
+
+[node name="WireframeMazeScene" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.415455, 0.474798, 0.775863, 0, -0.852959, 0.521978, -0.909614, 0.216859, 0.354366, 0.142982, 7.20722, 15.5684)
+visible = false
+layers = 1048575
+light_angular_distance = 4.24
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.636
+directional_shadow_split_1 = 0.0
+directional_shadow_split_2 = 0.17
+directional_shadow_split_3 = 0.243
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.292
+directional_shadow_max_distance = 28.3
+directional_shadow_pancake_size = 0.0
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("4_jbq1r")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(131066, 65530, 1, 131066, 65531, 0, 131066, 65532, 1, 131066, 65533, 1, 131066, 65534, 1, 131066, 65535, 1, 131066, 0, 1, 131066, 2, 1, 131066, 3, 1, 131067, 3, 1, 131067, 4, 1, 131067, 5, 1, 131067, 6, 1, 131067, 7, 1, 131068, 7, 1, 131070, 7, 0, 131071, 8, 1, 65536, 8, 1, 65537, 8, 1, 65538, 8, 1, 65539, 8, 1, 65539, 7, 1, 65539, 6, 0, 65539, 5, 0, 65539, 4, 0, 65539, 3, 0, 65539, 2, 0, 65539, 1, 0, 65539, 0, 0, 65539, 65535, 0, 65539, 65534, 0, 65539, 65533, 0, 65539, 65532, 0, 65539, 65531, 1, 65538, 65531, 1, 65538, 65530, 0, 65537, 65530, 1, 65536, 65530, 1, 131071, 65530, 1, 131070, 65530, 1, 131069, 65530, 1, 131068, 65530, 1, 131068, 65531, 1, 131068, 65532, 1, 131068, 65533, 1, 131065, 65531, 0, 131065, 65532, 0, 131065, 65533, 0, 131065, 65534, 0, 131065, 65535, 0, 131065, 0, 0, 131065, 1, 0, 131064, 2, 0, 131065, 2, 0, 131064, 3, 0, 131064, 4, 0, 131064, 5, 0, 131064, 6, 0, 131064, 7, 0, 131064, 8, 0, 131064, 9, 0, 131065, 9, 0, 131065, 10, 0, 131066, 10, 0, 131067, 10, 0, 131068, 10, 0, 131069, 10, 0, 131070, 10, 0, 131071, 10, 0, 65536, 10, 0, 65536, 11, 0, 65537, 11, 0, 65538, 11, 0, 65537, 10, 0, 65538, 10, 0, 65538, 9, 0, 65538, 7, 1, 65538, 6, 1, 65540, 65532, 0, 65540, 65531, 0, 65540, 65530, 0, 65539, 65530, 0, 65538, 65529, 0, 65537, 65529, 0, 65536, 65529, 1, 131071, 65529, 0, 131070, 65529, 0, 131069, 65529, 0, 131068, 65529, 0, 131068, 65528, 0, 131067, 65528, 0, 131066, 65528, 0, 131070, 6, 0, 131070, 8, 0, 131070, 9, 0, 131069, 6, 0, 131068, 6, 0, 131068, 4, 1, 131069, 4, 1, 131070, 4, 1, 131071, 4, 1, 65536, 4, 1, 65536, 5, 1, 65536, 6, 1, 131071, 6, 0, 131071, 7, 1, 65536, 7, 1, 65537, 7, 1, 65537, 6, 1, 131071, 5, 1, 131070, 5, 1, 131069, 5, 1, 131068, 5, 1, 131069, 7, 1, 131069, 8, 1, 131069, 9, 1, 131068, 9, 1, 131068, 8, 1, 131067, 65532, 1, 131067, 65533, 1, 131070, 65528, 0, 131070, 65527, 0, 131071, 65527, 1, 131071, 65526, 1, 65536, 65527, 1, 65537, 65527, 1, 65536, 65526, 1, 65536, 65528, 1, 65536, 65531, 1, 131071, 65531, 1, 131071, 65532, 1)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.226923, 0.687084, -0.690233, 0, 0.708722, 0.705488, 0.973913, -0.160092, 0.160825, -10.5772, 5.84918, 10.0062)
+visible = false
+light_energy = 33.0
+light_indirect_energy = 12.395
+light_size = 0.945
+light_specular = 0.136
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 3.48
+shadow_normal_bias = 3.95
+spot_range = 4096.0
+spot_attenuation = 1.36604
+
+[node name="CameraRig" type="Marker3D" parent="." node_paths=PackedStringArray("Target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36702, 6.1585, 8.35711)
+script = ExtResource("3_cic7p")
+Target = NodePath("../PlayerBall")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" node_paths=PackedStringArray("Target")]
+transform = Transform3D(1, 0, 0, 0, 0.891798, 0.452435, 0, -0.452435, 0.891798, 0, 5.234, 10.991)
+visible = false
+attributes = SubResource("CameraAttributesPractical_axlaf")
+current = true
+fov = 43.7
+near = 0.252
+script = ExtResource("4_sw55e")
+Target = NodePath("../../PlayerBall")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CameraRig/Camera3D"]
+environment = ExtResource("1_tiyss")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.33208, 7.9397, 7.46795)
+light_energy = 3.888
+shadow_enabled = true
+shadow_blur = 4.073
+omni_range = 54.9201
+
+[node name="PlayerBall" parent="." instance=ExtResource("3_hgpkb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36702, 6.1585, 8.35711)
+continuous_cd = true
+max_contacts_reported = 3
+contact_monitor = true
+
+[node name="DeathPlane" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+script = ExtResource("6_0w0b2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane"]
+shape = SubResource("BoxShape3D_houub")
+
+[node name="Plane" type="MeshInstance3D" parent="DeathPlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+instance_shader_parameters/coverage = 1.0
+instance_shader_parameters/flicker = 0.0
+instance_shader_parameters/laser_color = Color(0.14902, 0, 0, 1)
+instance_shader_parameters/speed = 0.5
+instance_shader_parameters/vertex_count = 50.0
+mesh = SubResource("QuadMesh_acaky")
+skeleton = NodePath("../..")
+
+[node name="BackgroundSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_2q5ut")
+autoplay = true

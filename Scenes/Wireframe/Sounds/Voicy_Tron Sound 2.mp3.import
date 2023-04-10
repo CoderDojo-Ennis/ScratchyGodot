@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1tr2tpw14luk"
+path="res://.godot/imported/Voicy_Tron Sound 2.mp3-e9564814db308e25d24cd6ee981f6f94.mp3str"
+
+[deps]
+
+source_file="res://Scenes/Wireframe/Sounds/Voicy_Tron Sound 2.mp3"
+dest_files=["res://.godot/imported/Voicy_Tron Sound 2.mp3-e9564814db308e25d24cd6ee981f6f94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

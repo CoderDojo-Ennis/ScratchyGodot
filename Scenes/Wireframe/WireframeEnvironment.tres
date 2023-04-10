@@ -1,0 +1,53 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://cy7ueeryns16q"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d528j"]
+sky_top_color = Color(0, 0.2, 0.231373, 1)
+sky_horizon_color = Color(0, 0, 0.301961, 1)
+sky_curve = 0.0208044
+ground_bottom_color = Color(0.0627451, 0, 0.0156863, 1)
+ground_horizon_color = Color(0, 0, 0.301961, 1)
+ground_curve = 0.0414106
+sun_angle_max = 68.5
+sun_curve = 0.332871
+
+[sub_resource type="Sky" id="Sky_k33t7"]
+sky_material = SubResource("ProceduralSkyMaterial_d528j")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_k33t7")
+ambient_light_source = 3
+ambient_light_color = Color(0.262745, 0.572549, 0.768627, 1)
+ambient_light_sky_contribution = 0.51
+ambient_light_energy = 5.39
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 0.8
+ssr_enabled = true
+ssao_enabled = true
+ssao_intensity = 15.97
+ssao_power = 3.82367
+ssao_detail = 2.68
+ssao_horizon = 0.3
+ssao_sharpness = 0.92
+ssao_light_affect = 0.66
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_levels/1 = 0.8
+glow_levels/2 = 0.1
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_intensity = 5.0
+glow_strength = 1.1
+glow_bloom = 0.1
+glow_blend_mode = 1
+glow_hdr_threshold = 1.5
+glow_map_strength = 0.5
+fog_light_color = Color(0, 0, 0, 1)
+fog_sun_scatter = 0.37
+fog_density = 0.5484
+fog_sky_affect = 0.5
+fog_height = 10.4
+fog_height_density = 0.3249
