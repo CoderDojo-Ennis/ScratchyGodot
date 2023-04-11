@@ -5,4 +5,5 @@ extends Camera3D
 
 
 func _process(_delta: float) -> void:
-	look_at(Target.position)
+	if(is_instance_valid(Target)):
+		look_at(Target.position)

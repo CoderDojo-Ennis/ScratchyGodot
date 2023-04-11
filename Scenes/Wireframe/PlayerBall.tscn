@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://drttb8b63mfqc"]
+[gd_scene load_steps=12 format=3 uid="uid://drttb8b63mfqc"]
 
 [ext_resource type="Script" path="res://Scenes/Wireframe/PlayerSphere.gd" id="1_pedif"]
 [ext_resource type="Material" uid="uid://qijk8ioao787" path="res://Scenes/Wireframe/WireSpehere2Material.tres" id="2_p6wje"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bn5it7x3lk3a1" path="res://Scenes/Wireframe/Sounds/glassding2.ogg" id="6_w8ywh"]
 [ext_resource type="AudioStream" uid="uid://bb3kpqhg34hfy" path="res://Scenes/Wireframe/Sounds/glassding3.ogg" id="7_v4x28"]
 [ext_resource type="AudioStream" uid="uid://n2bikawmxyyp" path="res://Scenes/Wireframe/Sounds/glassding4.ogg" id="8_hxdah"]
+[ext_resource type="AudioStream" uid="uid://bnnv4jnir1r8k" path="res://Scenes/Wireframe/Sounds/glassding5.ogg" id="9_wwdm8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1mvm5"]
 friction = 4.0
@@ -41,10 +42,11 @@ shape = SubResource("SphereShape3D_wsm77")
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_jwrf5")
+volume_db = 39.809
 
 [node name="CollisionSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_7bfrd")
 volume_db = 4.593
 max_polyphony = 3
 script = ExtResource("4_owxs5")
-Sounds = Array[AudioStream]([ExtResource("5_7bfrd"), ExtResource("6_w8ywh"), ExtResource("7_v4x28"), ExtResource("8_hxdah")])
+Sounds = Array[AudioStream]([ExtResource("5_7bfrd"), ExtResource("6_w8ywh"), ExtResource("7_v4x28"), ExtResource("8_hxdah"), ExtResource("9_wwdm8")])

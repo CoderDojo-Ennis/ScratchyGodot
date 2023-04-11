@@ -8,5 +8,6 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	global_position = lerp(global_position, Target.global_position, 0.05)
+func _physics_process(_delta: float) -> void:
+	if (is_instance_valid(Target)):
+		global_position = lerp(global_position, Target.global_position, 0.05)

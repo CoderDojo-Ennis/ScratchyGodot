@@ -22,20 +22,28 @@ func _physics_process(delta: float) -> void:
 	angular_velocity.z -= torque.x;
 	#apply_torque(Vector3(torque.x, torque.y, 0));
 
-	linear_velocity
 
-
-func OnDeathPlaneHit(deathPlane: Node, object: Node):
+func OnDeathPlaneHit(_deathPlane: Node, object: Node):
 	if (object.name == name):
 		print("Player - Death hit")
 		await Die()
 
 
 func Die():
-	var tween = create_tween().tween_method(SetCoverage, 0.8, 0.0, 1)
+	print("Death animation start")
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_parallel(true)
+	tween.tween_property(self, "angular_velocity", Vector3.ZERO, 1.0)
+	tween.tween_property(self, "linear_velocity", Vector3.ZERO, 1.0)
+	tween.tween_method(SetCoverage, 0.8, 0.005, 0.5)
+	tween.tween_method(SetFlickerSpeed, 20.0, 0.1, 1.0)
 	DeathSound.play()
 	await DeathSound.finished
-	await tween.finished
+	# await tween.finished # Not working with set_parallel
+	await Delay.Seconds(2)
+	tween.stop()
+	print("Death animation finished")
 	Events.PlayerDied.emit()
 	queue_free()
 
@@ -43,8 +51,11 @@ func Die():
 func SetCoverage(coverage: float):
 	PlayerSphere.set_instance_shader_parameter("coverage", coverage)
 
+func SetFlickerSpeed(flickerSpeed: float):
+	PlayerSphere.set_instance_shader_parameter("speed", flickerSpeed)
 
-func OnCollision(other: Node):
+
+func OnCollision(_other: Node):
 	pass
 	#CollisionSound.PlayCollisionSound()
 
@@ -52,7 +63,7 @@ func OnCollision(other: Node):
 var prev_linear_velocity: Vector3 = Vector3.ZERO
 
 
-func _integrate_forces(state)->void:
+func _integrate_forces(_state)->void:
 	var magnitude = (prev_linear_velocity - linear_velocity).length()
 	prev_linear_velocity = linear_velocity
 	if (magnitude > 1):
