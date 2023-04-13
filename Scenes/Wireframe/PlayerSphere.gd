@@ -30,29 +30,31 @@ func OnDeathPlaneHit(_deathPlane: Node, object: Node):
 
 
 func Die():
-	print("Death animation start")
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_parallel(true)
 	tween.tween_property(self, "angular_velocity", Vector3.ZERO, 1.0)
 	tween.tween_property(self, "linear_velocity", Vector3.ZERO, 1.0)
-	tween.tween_method(SetCoverage, 0.8, 0.005, 0.5)
-	tween.tween_method(SetFlickerSpeed, 20.0, 0.1, 1.0)
+	tween.tween_method(
+		func(coverage: float):
+			PlayerSphere.set_instance_shader_parameter("coverage", coverage),
+		0.8, 0.004, 0.5)
+	tween.tween_method(
+		func(flickerSpeed: float):
+			PlayerSphere.set_instance_shader_parameter("speed", flickerSpeed),
+		20.0, 0.1, 1.5)
+
 	DeathSound.play()
-	await DeathSound.finished
-	# await tween.finished # Not working with set_parallel
-	await Delay.Seconds(2)
-	tween.stop()
+
+	await Delay.AllSignals([
+		DeathSound.finished,
+		Delay.Seconds(1),
+		tween.finished
+	], "PlayerDeath")
 	print("Death animation finished")
+
 	Events.PlayerDied.emit()
 	queue_free()
-
-
-func SetCoverage(coverage: float):
-	PlayerSphere.set_instance_shader_parameter("coverage", coverage)
-
-func SetFlickerSpeed(flickerSpeed: float):
-	PlayerSphere.set_instance_shader_parameter("speed", flickerSpeed)
 
 
 func OnCollision(_other: Node):
